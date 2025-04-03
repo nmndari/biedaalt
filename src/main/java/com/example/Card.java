@@ -1,45 +1,29 @@
 package com.example;
 
 public class Card {
-    private boolean answeredCorrectly;
-    private int answerCount;
-    private int correctCount;
+    private final String question;
+    private final String answer;
+    private int mistakes;
 
-    // Constructor
-    public Card() {
-        this.answeredCorrectly = false;
-        this.answerCount = 0;
-        this.correctCount = 0;
+    public Card(String question, String answer, int mistakes) {
+        this.question = question;
+        this.answer = answer;
+        this.mistakes = mistakes;
     }
 
-    // Getters and Setters
-    public boolean isAnsweredCorrectly() {
-        return answeredCorrectly;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setAnsweredCorrectly(boolean answeredCorrectly) {
-        this.answeredCorrectly = answeredCorrectly;
+    public String getAnswer() {
+        return answer;
     }
 
-    public int getAnswerCount() {
-        return answerCount;
+    public int getMistakes() {
+        return mistakes;
     }
 
-    public void incrementAnswerCount() {
-        this.answerCount++;
-    }
-
-    public int getCorrectCount() {
-        return correctCount;
-    }
-
-    public void incrementCorrectCount() {
-        if (answeredCorrectly) {
-            this.correctCount++;
-        }
-    }
-
-    public boolean isMistaken() {
-        return !answeredCorrectly;
+    public void incrementMistakes() {
+        this.mistakes++;
     }
 }
