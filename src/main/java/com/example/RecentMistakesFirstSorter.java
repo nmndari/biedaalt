@@ -1,16 +1,14 @@
 package com.example;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
-class RecentMistakesFirstSorter implements CardOrganizer {
-
-   @Override
-   public List<Card> sortCards(List<Card> var1) {
-      var1.sort((var0, var1x) -> {
-         return Integer.compare(var1x.getMistakes(), var0.getMistakes());
-      });
-      return var1;
-   }
+public class RecentMistakesFirstSorter implements CardOrganizer {
+    @Override
+    public List<Card> sortCards(List<Card> cards) {
+        return cards.stream()
+                .sorted(Comparator.comparingInt(Card::getMistakes).reversed())
+                .collect(Collectors.toList());
+    }
 }
-
-

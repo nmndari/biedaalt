@@ -1,10 +1,20 @@
 package com.example;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 class FlashcardTest {
     
+    @Test
+    void testCardGetters() {
+        Card card = new Card("What is Java?", "A programming language", 2);
+        assertEquals("What is Java?", card.getQuestion());
+        assertEquals("A programming language", card.getAnswer());
+        assertEquals(2, card.getMistakes());
+    }
 
     @Test
     void testIncrementMistakes() {
